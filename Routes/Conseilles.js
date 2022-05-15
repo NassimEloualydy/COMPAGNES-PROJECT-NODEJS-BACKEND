@@ -1,0 +1,11 @@
+const express=require('express');
+const Router=express.Router();
+const {createConseiller,deleteConseiller,getPhotoConseiller,updateConseiller,searchConseiller}=require('../Controllers/conseillerController');
+const {ConseillerValidator,getConseiller}=require('../Middlewares/Conseiller');
+Router.post('/create',createConseiller);
+Router.delete('/delete/:id',deleteConseiller);
+Router.get('/photo/:id',getPhotoConseiller);
+Router.put('/update/:id',updateConseiller);
+Router.post('/search',searchConseiller);
+Router.param('id',getConseiller);
+module.exports=Router;
